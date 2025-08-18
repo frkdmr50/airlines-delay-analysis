@@ -1,26 +1,40 @@
+# AirLens - Uçak Rötar Analizi
 
-# Airlines Delay Analysis / Havayolu Rötar Analizi
+## Proje Hakkında
+AirLens, hava yolu verilerini kullanarak uçakların iniş ve kalkış durumlarını analiz eden bir veri bilimi projesidir. Bu proje ile:
+- Rötarların hangi şehirler, hava yolları ve nedenlerden kaynaklandığını,
+- Uçakların geç veya zamanında iniş yapma olasılıklarını,
+- Geleceğe yönelik basit tahmin modellerini
 
-Bu repo, **airlens.csv** veri setiyle uçuş rötarlarının keşifsel analizi, zaman serisi incelemesi ve basit sınıflandırma modellerini içerir.
+belirlemeyi amaçlamaktadır.
 
-## İçerik
-- `airlines_delay_analysis.ipynb`: Veri yükleme → ön işleme → EDA → zaman serisi → sınıflandırma
-- `processed_sample.csv`: Örnek çıktı (ilk 1.000 satır, opsiyonel)
-- `requirements.txt`: Gerekli Python paketleri
-- (Opsiyonel) `data/airlens.csv`: Veri dosyanızı `data/` klasörüne koyabilirsiniz
+## Veri Seti
+- Veri Kaynağı: [airlens.csv](link-to-your-dataset)  
+- Veri Özellikleri:
+  - `FlightNumber`: Uçuş numarası
+  - `Airline`: Hava yolu şirketi
+  - `Origin`: Kalkış şehri
+  - `Destination`: Varış şehri
+  - `ScheduledDeparture`: Planlanan kalkış saati
+  - `ActualDeparture`: Gerçek kalkış saati
+  - `ScheduledArrival`: Planlanan varış saati
+  - `ActualArrival`: Gerçek varış saati
+  - `Delay`: Rötar süresi (dakika)
+  - `Reason`: Rötar nedeni (Hava, Teknik, Operasyonel vb.)
 
 ## Kurulum
+
+Projeyi yerel bilgisayarınızda çalıştırmak için:
+
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+# Repo klonlama
+git clone https://github.com/frkdmr50/airlens.git
+cd airlens
+
+# Sanal ortam oluşturma (opsiyonel)
+python -m venv venv
+source venv/bin/activate  # Linux / Mac
+venv\Scripts\activate     # Windows
+
+# Gerekli kütüphaneleri yükleme
 pip install -r requirements.txt
-jupyter lab  # veya jupyter notebook
-```
-
-## Kullanım
-1) `airlens.csv` dosyasını proje dizinine veya `data/` klasörüne kopyalayın
-2) `airlines_delay_analysis.ipynb` dosyasını açın ve hücreleri sırayla çalıştırın
-3) Son bölümde model çıktıları ve metrikleri göreceksiniz
-
-## Lisans
-MIT
